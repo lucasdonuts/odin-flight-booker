@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  resources :flights
   resources :airports
   devise_for :users
-  root "pages#home"
+  root "airports#index"
 end

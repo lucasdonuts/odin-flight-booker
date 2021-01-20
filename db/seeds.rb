@@ -56,3 +56,5 @@ Airport.create(code: 'IND')
 Airport.create(code: 'PIT')
 Airport.create(code: 'SJU')
 Airport.create(code: 'CVG')
+
+Flight.create(from_airport: 1,to_airport: 2, date: 2021-03-03, duration: 2)
