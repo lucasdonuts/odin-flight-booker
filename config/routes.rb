@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :flights
+  resources :flights do
+      get 'search', on: :member
+  end
   resources :airports
+  resources :pages
   devise_for :users
-  root "airports#index"
+  root "flights#index"
 end

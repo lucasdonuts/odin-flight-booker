@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+ActiveRecord::Base.connection.execute('ALTER SEQUENCE airports_id_seq RESTART WITH 1')
+ActiveRecord::Base.connection.execute('ALTER SEQUENCE flights_id_seq RESTART WITH 1')
+Airport.destroy_all
+Flight.destroy_all
+
 Airport.create(code: 'LAX')
 Airport.create(code: 'BTR')
 Airport.create(code: 'ORD')
@@ -57,4 +62,23 @@ Airport.create(code: 'PIT')
 Airport.create(code: 'SJU')
 Airport.create(code: 'CVG')
 
-Flight.create(from_airport: 1,to_airport: 2, date: 2021-03-03, duration: 2)
+i = 0
+k = 0
+date = Date.today
+time = Time.now
+Airport.all.each do |x|
+  Airport.all.each do |y|
+    unless x == y
+      rand(9).times do
+        Flight.create(from_airport_id: x.id,
+                      to_airport_id: y.id,
+                      date: date,
+                      time: time + (k*15).minutes,
+                      duration: rand(1..12))
+        k += 1
+      end
+    end
+  end
+  date += i
+  i += 1
+end

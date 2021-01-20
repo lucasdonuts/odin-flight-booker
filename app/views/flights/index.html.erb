@@ -1,33 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Flights</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>To airport</th>
-      <th>From airport</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @flights.each do |flight| %>
-      <tr>
-        <td><%= flight.to_airport_id %></td>
-        <td><%= flight.from_airport_id %></td>
-        <td><%= flight.date %></td>
-        <td><%= flight.time %></td>
-        <td><%= link_to 'Show', flight %></td>
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Flight', new_flight_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <div class="level box">
+          <div class="level-item">
+            <div>
+              <p class="title is-5">Search</p>
+              <%= render 'search', flight: @flight %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <%= @flights.first(25).each do |flight| %>
+          <nav class="level box">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">From</p>
+                <p class="title is-7"><%= flight.from_airport.code %></p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">To</p>
+                <p class="title is-7"><%= flight.to_airport.code %></p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Date</p>
+                <p class="title is-7"><%= flight.date.strftime('%B %-d, %Y') %></p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Time</p>
+                <p class="title is-7"><%= flight.time.strftime('%l:%M %p') %></p>
+              </div>
+            </div>
+          </nav>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

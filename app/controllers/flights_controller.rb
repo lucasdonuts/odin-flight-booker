@@ -1,15 +1,30 @@
 class FlightsController < ApplicationController
+  include FlightsHelper
+
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :set_airport_options, only: :index
+  before_action :set_date_options, only: :index
 
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    # Don't forget to add :date to query after it's implemented
+    if params.has_key?(:num_of_passengers) && params.has_key?(:from_airport_id) && params.has_key?(:to_airport_id)
+      @flights = Flight.where(:to_airport_id => params[:to_airport_id],
+                              :from_airport_id => params[:from_airport_id])
+    else
+      @flights = Flight.all
+    end
+  end
+
+  def search
+    
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
+    
   end
 
   # GET /flights/new
@@ -61,14 +76,4 @@ class FlightsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flight
-      @flight = Flight.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def flight_params
-      params.require(:flight).permit(:to_airport_id, :from_airport_id, :date, :time, :duration)
-    end
 end
