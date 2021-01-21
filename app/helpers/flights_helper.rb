@@ -7,7 +7,11 @@ module FlightsHelper
   end
 
   def flight_params
-    params.require(:flight).permit(:to_airport_id, :from_airport_id, :date, :time, :duration)
+    params.require(:flight).permit(:to_airport_id,
+                                   :from_airport_id,
+                                   :date,
+                                   :time,
+                                   :duration)
   end
 
   def set_airport_options
@@ -15,12 +19,25 @@ module FlightsHelper
   end
 
   def set_date_options
-    @date_options = Flight.all.map { |f| [f.date.strftime('%b %-d, %Y'), f.date]}
+    @date_options = Flight.all.map { |f| [f.date.strftime('%b %d, %Y'), f.date]}.uniq.sort
   end
 
-  def search_params
-    # Don't forget to re-insert :date after it's implemented
-    params.require(:search).permit(:to_airport_id, :from_airport_id, :num_of_passengers)
+  def format_date
+    Date.civil(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+  end
+
+  def set_search_params
+    @search_params = {to_airport_id: "",
+                      from_airport_id: ""}
+    @search_params[:to_airport_id] = params[:to_airport_id] if params.has_key?(:to_airport_id)
+    @search_params[:from_airport_id] = params[:from_airport_id] if params.has_key?(:from_airport_id)
+    # @search_params << params[:date] if params.has_key?(:date)
+    # @search_params << params[:num_of_passengers] if params.has_key?(:num_of_passengers)
+  end
+
+  def search?
+    params.has_key?(:num_of_passengers) && 
+    params.has_key?(:date)
   end
 
 end

@@ -2,16 +2,32 @@ class FlightsController < ApplicationController
   include FlightsHelper
 
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
-  before_action :set_airport_options, only: :index
   before_action :set_date_options, only: :index
+  before_action :set_airport_options, only: :index
 
   # GET /flights
   # GET /flights.json
   def index
-    # Don't forget to add :date to query after it's implemented
-    if params.has_key?(:num_of_passengers) && params.has_key?(:from_airport_id) && params.has_key?(:to_airport_id)
-      @flights = Flight.where(:to_airport_id => params[:to_airport_id],
-                              :from_airport_id => params[:from_airport_id])
+    if search?
+      if params.has_key?(:to_airport_id) && !params.has_key?(:from_airport_id)
+
+        @flights = Flight.where(to_airport_id: params[:to_airport_id],
+                                date: params[:date])
+
+      elsif params.has_key?(:from_airport_id) && !params.has_key?(:to_airport_id)
+
+        @flights = Flight.where(from_airport_id: params[:from_airport_id],
+                                date: params[:date])
+      
+      elsif params.has_key?(:from_airport_id) && params.has_key?(:to_airport_id)
+
+        @flights = Flight.where(to_airport_id: params[:to_airport_id],
+                                from_airport_id: params[:from_airport_id],
+                                date: params[:date])
+
+      else
+        @flights = Flight.where(date: params[:date])
+      end
     else
       @flights = Flight.all
     end

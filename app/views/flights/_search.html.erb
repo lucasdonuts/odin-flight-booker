@@ -1,21 +1,29 @@
-<%= form_with url: flights_path, method: :get, local: true do |f| %>
+<%= form_with(url: flights_path, method: :get, local: true) do |f| %>
   <div class="field">
     <div class="control">
       <%= select_tag(:from_airport_id, options_for_select(@airport_options,
-                                                          selected: params[:from_airport_id])) %>
+                                                          selected: params[:from_airport_id]),
+                                                          include_blank: '') %>
     </div>
   </div>
   <div class="field">
     <div class="control">
       <%= select_tag(:to_airport_id, options_for_select(@airport_options,
-                                                        selected: params[:to_airport_id])) %>
+                                                        selected: params[:to_airport_id]),
+                                                        include_blank: '') %>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= select_tag( :num_of_passengers,
+      <%= select_tag(:num_of_passengers,
                       options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4]],
                                           selected: params[:num_of_passengers])) %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <%= select_tag(:date,
+                     options_for_select(@date_options, selected: params[:date])) %>
     </div>
   </div>
   <div class="field">

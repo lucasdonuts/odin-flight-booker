@@ -11,6 +11,14 @@ ActiveRecord::Base.connection.execute('ALTER SEQUENCE flights_id_seq RESTART WIT
 Airport.destroy_all
 Flight.destroy_all
 
+def rand_in_range(from, to)
+  rand * (to - from) + from
+end
+
+def rand_time(from = Time.now, to)
+  Time.at(rand_in_range(from.to_f, to.to_f))
+end
+
 Airport.create(code: 'LAX')
 Airport.create(code: 'BTR')
 Airport.create(code: 'ORD')
@@ -69,16 +77,15 @@ time = Time.now
 Airport.all.each do |x|
   Airport.all.each do |y|
     unless x == y
-      rand(9).times do
+      rand(1..5).times do
         Flight.create(from_airport_id: x.id,
                       to_airport_id: y.id,
-                      date: date,
-                      time: time + (k*15).minutes,
+                      date: Date.today + rand(365),
+                      time: Time.now + rand(1440),
                       duration: rand(1..12))
-        k += 1
+        #k += 1
       end
     end
   end
-  date += i
-  i += 1
+  #i += 1
 end
