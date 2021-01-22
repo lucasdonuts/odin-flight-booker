@@ -1,9 +1,9 @@
-# Odin Flight Booker
+<div align="center"># Odin Flight Booker</div>
 
 ---
 
-**Ruby Version:** 2.7.2
-**Rails Verstion:** 6.1.1
+**Ruby Version:** 2.7.2  
+**Rails Verstion:** 6.1.1  
 [**See It Live**](https://odin-lucas-flight-booker.herokuapp.com/)
 
 ---
