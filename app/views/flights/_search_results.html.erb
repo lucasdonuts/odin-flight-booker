@@ -1,24 +1,15 @@
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-3">
-        <div class="level box">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-5">Search</p>
-              <%= render 'search' %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column has-text-centered">
-        <!-- Create simple_form_for(@booking) here after creating booking scaffolding
-             as well as a passenger model -->
-        <% if search? %>
-          <%= render 'search_results' %>
-        <% else %>
-          <% @flights.sample(10).each do |flight| %>
+<%= simple_form_for @booking, url: new_booking_path, method: :get, local: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="columns">
+    <div class="column">
+      <% @flights.each do |flight| %>
+        <div class="field">
+          <div class="control">
             <nav class="level box">
+              <input type="radio" name="flight-selection">
               <div class="level-item has-text-centered">
                 <div>
                   <p class="heading">From</p>
@@ -44,9 +35,21 @@
                 </div>
               </div>
             </nav>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+        </div>
+        <div class="field is-hidden">
+          <div class="control">
+            <%= select_tag(:num_of_passengers, options_for_select([""])) %>
+          </div>
+        </div>
+      <% end %>
     </div>
+      <div class="column is-3" id="fixed-button">
+        <div class="field">
+          <div class="control">
+            <%= f.button :submit, class: "button is-link" %>
+          </div>
+        </div>
+      </div>
   </div>
-</section>
+<% end %>

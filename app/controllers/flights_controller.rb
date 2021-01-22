@@ -9,17 +9,17 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     if search?
-      if params.has_key?(:to_airport_id) && !params.has_key?(:from_airport_id)
+      if params[:from_airport_id].empty? && !params[:to_airport_id].empty?
 
         @flights = Flight.where(to_airport_id: params[:to_airport_id],
                                 date: params[:date])
 
-      elsif params.has_key?(:from_airport_id) && !params.has_key?(:to_airport_id)
+      elsif !params[:from_airport_id].empty? && params[:to_airport_id].empty?
 
         @flights = Flight.where(from_airport_id: params[:from_airport_id],
                                 date: params[:date])
       
-      elsif params.has_key?(:from_airport_id) && params.has_key?(:to_airport_id)
+      elsif !params[:from_airport_id].empty? && !params[:to_airport_id].empty?
 
         @flights = Flight.where(to_airport_id: params[:to_airport_id],
                                 from_airport_id: params[:from_airport_id],
@@ -28,13 +28,10 @@ class FlightsController < ApplicationController
       else
         @flights = Flight.where(date: params[:date])
       end
+      @booking = Booking.new
     else
       @flights = Flight.all
     end
-  end
-
-  def search
-    
   end
 
   # GET /flights/1
