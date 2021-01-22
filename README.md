@@ -3,7 +3,9 @@
 
 <div align="center"><b>Ruby Version:</b> 2.7.2</div>  
 <div align="center"><b>Rails Verstion:</b> 6.1.1</div>  
-<a href="https://odin-lucas-flight-booker.herokuapp.com/"><b>See It Live</b></a>
+<div align="center">
+  <a href="https://odin-lucas-flight-booker.herokuapp.com/"><b>See It Live</b></a>
+</div>
 
 ---
 [Assignment page can be found here.](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms)
