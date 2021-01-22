@@ -1,8 +1,8 @@
 # <div align="center">Assignment: Odin Flight Booker</div>
 ---
 
-<div align="center"><b>Ruby Version:</b></div> 2.7.2  
-<div align="center"><b>Rails Verstion:</b></div> 6.1.1  
+<div align="center"><b>Ruby Version:</b> 2.7.2</div>  
+<div align="center"><b>Rails Verstion:</b> 6.1.1</div>  
 [**See It Live**](https://odin-lucas-flight-booker.herokuapp.com/)
 
 ---
