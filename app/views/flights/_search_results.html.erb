@@ -9,7 +9,11 @@
         <div class="field">
           <div class="control">
             <nav class="level box">
-              <input type="radio" name="flight-selection">
+              <% if flight == @flights.first %>
+                <%= f.radio_button :flight_id, flight.id, checked: true %>
+              <% else %>
+                <%= f.radio_button :flight_id, flight.id %>
+              <% end %>
               <div class="level-item has-text-centered">
                 <div>
                   <p class="heading">From</p>
@@ -37,19 +41,19 @@
             </nav>
           </div>
         </div>
-        <div class="field is-hidden">
-          <div class="control">
-            <%= select_tag(:num_of_passengers, options_for_select([""])) %>
-          </div>
-        </div>
       <% end %>
     </div>
-      <div class="column is-3" id="fixed-button">
-        <div class="field">
-          <div class="control">
-            <%= f.button :submit, class: "button is-link" %>
-          </div>
+    <div class="field is-hidden">
+      <div class="control">
+        <%= f.radio_button :num_of_passengers, params[:num_of_passengers], checked: true %>
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="field" id="fixed-button">
+        <div class="control">
+          <%= f.button :submit, class: "button is-link" %>
         </div>
       </div>
+    </div>
   </div>
 <% end %>

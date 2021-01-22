@@ -1,5 +1,40 @@
-<h1>New Booking</h1>
-
-<%= render 'form', booking: @booking %>
-
-<%= link_to 'Back', bookings_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="box column is-half is-offset-one-quarter has-text-centered">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">From</p>
+                <p class="title is-7"><%= @booking.flight.from_airport.code %></p>
+              </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">To</p>
+              <p class="title is-7"><%= @booking.flight.to_airport.code %></p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Date</p>
+              <p class="title is-7"><%= @booking.flight.date %></p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Flight ID</p>
+              <p class="title is-7"><%= @booking.flight_id %></p>
+            </div>
+          </div>
+        </nav>
+        <div class="columns is-centered">
+          <div class="column is-7">
+            <%= render 'form', booking: @booking %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
