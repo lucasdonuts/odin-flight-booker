@@ -1,7 +1,7 @@
 # <div align="center">Assignment: Odin Flight Booker</div>
 ---
-->**Ruby Version:** 2.7.2  <-
-->**Rails Verstion:** 6.1.1  <-
+->**Ruby Version:** 2.7.2<-  
+->**Rails Verstion:** 6.1.1<-  
 ->[**See It Live**](https://odin-lucas-flight-booker.herokuapp.com/)<-
 ---
 [Assignment page can be found here.](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms)
