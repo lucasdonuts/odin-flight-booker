@@ -1,5 +1,3 @@
-<div align="center"># Odin Flight Booker</div>
-
 ---
 
 **Ruby Version:** 2.7.2  
@@ -8,7 +6,7 @@
 
 ---
 
-# Assignment
+# <div align="center">Assignment: Odin Flight Booker</div>
 [Assignment page can be found here.](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms)
 We’ll be creating a one-way flight booker. You’ll get lots of practice populating and building dropdown menus, radio buttons, and nested submissions. Let the fun begin!
 
