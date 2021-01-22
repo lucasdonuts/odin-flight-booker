@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OdinFlightBooker</title>
+    <title>Odin Flight Booker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,16 +12,25 @@
   </head>
 
   <body>
+    <div class="has-background-info">
+      <nav class="level" id="navbar">
+        <div class="level-item has-text-centered">
+          <%= link_to "Odin Flight Booker", root_path, class: "title has-text-white" %>
+        </div>
+      </nav>
+    </div>
+    
     <% if flash[:notice] %>
-      <div class="notifications is-primary global-notification">
+      <div class="notification is-primary global-notification has-text-centered">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="notification is-danger global-notification">
+      <div class="notification is-danger is-light global-notification has-text-centered">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

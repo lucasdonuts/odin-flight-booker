@@ -24,3 +24,14 @@
  #fixed-button {
    position: fixed;
  }
+
+ #navbar {
+   height: 80px;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+   border-block-color: lightgray;
+ }
+
+ .notification:not(last-child) {
+   margin: -24px 0px 0px !important;
+ }

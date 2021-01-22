@@ -1,29 +1,37 @@
 <%= form_with(url: flights_path, method: :get, local: true) do |f| %>
   <div class="field">
     <div class="control">
-      <%= select_tag(:from_airport_id, options_for_select(@airport_options,
-                                                          selected: params[:from_airport_id]),
-                                                          include_blank: '') %>
+      <div class="select is-primary is-small is-full-width">
+        <%= select_tag(:from_airport_id, options_for_select(@airport_options,
+                                                            selected: params[:from_airport_id]),
+                                                            include_blank: 'From') %>
+      </div>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= select_tag(:to_airport_id, options_for_select(@airport_options,
-                                                        selected: params[:to_airport_id]),
-                                                        include_blank: '') %>
+      <div class="select is-primary is-small">
+        <%= select_tag(:to_airport_id, options_for_select(@airport_options,
+                                                          selected: params[:to_airport_id]),
+                                                          include_blank: 'To') %>
+      </div>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= select_tag(:num_of_passengers,
-                      options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4]],
+      <div class="select is-primary is-small">
+        <%= select_tag(:num_of_passengers,
+                      options_for_select([["1 Passenger", 1], ["2 Passengers", 2], ["3 Passengers", 3], ["4 Passengers", 4]],
                                           selected: params[:num_of_passengers])) %>
+      </div>
     </div>
   </div>
   <div class="field">
     <div class="control">
-      <%= select_tag(:date,
-                     options_for_select(@date_options, selected: params[:date])) %>
+      <div class="select is-primary is-small">
+        <%= select_tag(:date,
+                      options_for_select(@date_options, selected: params[:date])) %>
+      </div>
     </div>
   </div>
   <div class="field">

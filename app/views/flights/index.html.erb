@@ -1,19 +1,13 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column is-3">
-        <div class="level box">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-5">Search</p>
-              <%= render 'search' %>
-            </div>
-          </div>
+      <div class="column is-3 has-text-centered">
+        <div class="box">
+          <p class="title is-5">Search</p>
+          <%= render 'search' %>
         </div>
       </div>
       <div class="column has-text-centered">
-        <!-- Create simple_form_for(@booking) here after creating booking scaffolding
-             as well as a passenger model -->
         <% if search? %>
           <%= render 'search_results' %>
         <% else %>
