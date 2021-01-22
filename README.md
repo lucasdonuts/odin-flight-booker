@@ -3,7 +3,7 @@
 
 <div align="center">**Ruby Version:** 2.7.2  </div>
 <div align="center">**Rails Verstion:** 6.1.1  </div>
-<div align="center">[**See It Live**](https://odin-lucas-flight-booker.herokuapp.com/)</div>
+[<div align="center">**See It Live**</div>](https://odin-lucas-flight-booker.herokuapp.com/)
 
 ---
 [Assignment page can be found here.](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms)
