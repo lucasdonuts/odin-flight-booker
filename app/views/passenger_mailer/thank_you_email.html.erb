@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body align="center">
+    <h1>Thanks for booking with Odin Flight Booker!</h1>
+    <p>You've successfully booked your flight to <%= @flight.to_airport.code %>.<br>
+       Your flight leaves at <%= @flight.time.strftime('%l:%M %p') %> on <%= @flight.date.strftime('%B %-d, %Y') %>.<br>
+       You can view the details of your booking <%= link_to "here", @url %>.
+    </p>
+  </body>
+</html>

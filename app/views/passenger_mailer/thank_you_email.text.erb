@@ -1,0 +1,8 @@
+Thanks for booking with Odin Flight Booker!
+-------------------------------------------
+
+You've successfully booked your flight to <%= @flight.to_airport.code %>.
+
+Your flight leaves at <%= @flight.time.strftime('%l:%M %p') %> on <%= @flight.date.strftime('%B %-d, %Y') %>.
+
+You can view the details of your booking at <%= @url %>.

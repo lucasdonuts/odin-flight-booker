@@ -26,7 +26,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'bulma-rails', '~> 0.9.1'
-gem 'bulmajs-rails'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bulmajs-rails'
@@ -40,6 +39,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  gem "letter_opener"
 end
 
 group :development do
